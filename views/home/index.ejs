@@ -26,23 +26,36 @@
             <input type="submit"/>
         </form>
     </div>
-    <div id="messages"></div>
+    <div id="messages">
+        <div id="message1">&nbsp;</div>
+        <div id="message2">&nbsp;</div>
+        <div id="message3">&nbsp;</div>
+        <div id="message4">&nbsp;</div>
+        <div id="message5">&nbsp;</div>
+    </div>
     <script>
+        if(!window['socketupdate']){
+            var socketUpdates= [];
+            window['socketupdate']= function(socketUpdate){
+                socketUpdates.push(socketUpdate);
+                if(socketUpdates.length>5) socketUpdates.shift();
+                socketUpdates.forEach(function(su,pos){
+                    $('#message'+(pos+1)).html(su.id+ ' - '+ su.contents);
+                });
+            };
+        }
         $(document).ready(function(){
             socket.get('/socketUpdate/', function(response){
-                response.forEach(function(socketUpdate){
-                    $('#messages').append('<div>'+ socketUpdate.id+ ' - '+ socketUpdate.contents+ '</div>');
-                })
-            })
+                response.forEach(window['socketupdate']);
+            });
 
             $('#submit').submit(function(e){
                 console.log('submit function');
                 e.preventDefault();
                 var contents= $('#contents').val();
-                console.log('Posting contents to socket.');
-                console.log(contents);
+                console.log('Posting contents to socket.', contents);
                 socket.post('/socketUpdate', {contents: contents}, function(response){
-                    console.log(response);
+                    console.log('new socket update posted', response);
                 })
             })
         })
