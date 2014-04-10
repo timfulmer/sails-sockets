@@ -1,0 +1,106 @@
+{
+  "data": {
+    "socketupdate": [
+      {
+        "index": 1,
+        "contents": "testing again",
+        "createdAt": "2014-04-10T21:10:10.755Z",
+        "updatedAt": "2014-04-10T21:10:10.755Z",
+        "id": 8
+      },
+      {
+        "contents": "add some stuff",
+        "createdAt": "2014-04-10T22:20:15.966Z",
+        "updatedAt": "2014-04-10T22:20:15.966Z",
+        "id": 19
+      },
+      {
+        "contents": "more more",
+        "createdAt": "2014-04-10T22:22:53.425Z",
+        "updatedAt": "2014-04-10T22:22:53.425Z",
+        "id": 21
+      },
+      {
+        "contents": "from another tab",
+        "createdAt": "2014-04-10T22:23:14.208Z",
+        "updatedAt": "2014-04-10T22:23:14.208Z",
+        "id": 22
+      },
+      {
+        "contents": "from safari with reconnect",
+        "createdAt": "2014-04-10T22:34:49.391Z",
+        "updatedAt": "2014-04-10T22:34:49.391Z",
+        "id": 25
+      },
+      {
+        "contents": "from chrome tab2 after reconnect",
+        "createdAt": "2014-04-10T22:35:55.181Z",
+        "updatedAt": "2014-04-10T22:35:55.181Z",
+        "id": 28
+      },
+      {
+        "contents": "from safari before restart",
+        "createdAt": "2014-04-10T22:42:18.104Z",
+        "updatedAt": "2014-04-10T22:42:18.104Z",
+        "id": 29
+      },
+      {
+        "contents": "from chrome tab1 after restart",
+        "createdAt": "2014-04-10T22:42:49.968Z",
+        "updatedAt": "2014-04-10T22:42:49.968Z",
+        "id": 30
+      },
+      {
+        "contents": "testing more",
+        "createdAt": "2014-04-10T23:03:37.191Z",
+        "updatedAt": "2014-04-10T23:03:37.191Z",
+        "id": 31
+      },
+      {
+        "contents": "test after restart",
+        "createdAt": "2014-04-10T23:04:07.005Z",
+        "updatedAt": "2014-04-10T23:04:07.005Z",
+        "id": 33
+      },
+      {
+        "contents": "from safari after restart",
+        "createdAt": "2014-04-10T23:10:30.073Z",
+        "updatedAt": "2014-04-10T23:10:30.073Z",
+        "id": 35
+      },
+      {
+        "contents": "from safari after restart",
+        "createdAt": "2014-04-10T23:13:02.438Z",
+        "updatedAt": "2014-04-10T23:13:02.438Z",
+        "id": 36
+      }
+    ]
+  },
+  "schema": {
+    "socketupdate": {
+      "contents": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "defaultsTo": "AUTO_INCREMENT",
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime",
+        "default": "NOW"
+      },
+      "updatedAt": {
+        "type": "datetime",
+        "default": "NOW"
+      }
+    }
+  },
+  "counters": {
+    "socketupdate": {
+      "id": 36
+    }
+  }
+}
