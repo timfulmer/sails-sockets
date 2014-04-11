@@ -54,7 +54,7 @@ JS library from the Sails server, like so:
 <script src="http://localhost:1337/socket.io/socket.io.js" type="text/javascript"></script>
 ```
 
-Then we define a quick helper function to map Backbone sync parameter
+Then we define a quick helper function to map the Backbone sync function
 to socket.io emit calls:
 
 ```
@@ -201,7 +201,7 @@ code above can get to it:
 
 #Conclusion
 
-For some reason none of the existing art for this stack exactly met our needs.
+For some reason none of the existing art for this stack did not exactly met our needs.
 We got things mostly working using existing examples, only to have severe
 trouble with intermittent connectivity issues over the socket channel.
 Basically everything would work on refresh, but leave the browser open for a
