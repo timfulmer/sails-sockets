@@ -188,7 +188,7 @@ all views listening for changes from other socket clients:
         },
 ```
 
-And registering these views to global / shared location, where the Socket.io
+And registering these views to a global / shared location, where the Socket.io
 code above can get to it:
 
 ```
