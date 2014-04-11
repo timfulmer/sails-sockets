@@ -201,7 +201,7 @@ code above can get to it:
 
 #Conclusion
 
-For some reason none of the existing art for this stack did not exactly met our needs.
+For some reason the existing art for this stack did not exactly met our needs.
 We got things mostly working using existing examples, only to have severe
 trouble with intermittent connectivity issues over the socket channel.
 Basically everything would work on refresh, but leave the browser open for a
