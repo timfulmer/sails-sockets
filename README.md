@@ -1,7 +1,7 @@
-#Sails.js + Socket.io (v0.9) + Backbone.js
+#Sails.js + Socket.io (v0.9) + Backbone.js + CORS
 
 Simple proof of concept application showing how Sails.js,
-Socket.io and Backbone.js can all work together for efficient
+Socket.io, Backbone.js and CORS can all work together for efficient
 push communications.
 
 ##Sails.js
