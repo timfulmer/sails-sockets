@@ -67,9 +67,18 @@
 
         if( !socketInitialized){
             var serverUrl= "http://localhost:1337";
-            $.get(serverUrl, function(data){
+            $.ajaxSetup({xhrFields: {
+                withCredentials: true
+            }});
+            $.get(serverUrl, function(data, status, xhr){
                 if( socket== undefined){
-                    socket= io.connect(serverUrl);
+                    var connectUrl= serverUrl;
+                    if(xhr.getResponseHeader("Set-Cookie")){
+                        var sailsCookie= xhr.getResponseHeader("Set-Cookie");
+                        sailsCookie= sailsCookie.substring(0,sailsCookie.indexOf(";"));
+                        connectUrl= connectUrl+ "?cookie="+ sailsCookie.replace( "=", "%3D");
+                    }
+                    socket= io.connect(connectUrl);
                     socket.on('connect', function socketConnected() {
 
                         // Listen for Comet messages from Sails
@@ -93,7 +102,6 @@
                             })
                         });
 
-
                         ///////////////////////////////////////////////////////////
                         // Here's where you'll want to add any custom logic for
                         // when the browser establishes its socket connection to
@@ -111,7 +119,9 @@
                     });
                     socketInitialized= true;
                 }
-                socketSync(method,model,options);
+                if( socket){
+                    socketSync(method,model,options);
+                }
             })
         }else{
             socketSync(method,model,options);

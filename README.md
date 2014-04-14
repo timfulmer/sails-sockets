@@ -199,6 +199,33 @@ code above can get to it:
     window["socketupdate"]= listView;
 ```
 
+## CORS
+
+Got everything working, went home for the day, and arrived early to show off my
+shiny new sample project to the guys.  Cleared out all browser data, databases,
+redis instances, etc.  Fired up the demo and wouldn't you know it but the
+darn socket authentication wasn't able to create a session!
+
+More digging and head scratching; finally found an obscure mention about
+`withCredentials`.  Read up on some docs, and made sure to configure
+`withCredentials` before setting up the socket.io session, like so:
+
+```
+            $.ajaxSetup({xhrFields: {
+                withCredentials: true
+            }});
+```
+
+Problem seemed to be a cookie setup in one AJAX call would not get propagated/copied
+to other AJAX calls made by the same browser to the same API, in some browsers
+like Chrome.  Which is
+different than how cookies are treated when loading web pages and not XHRs.
+It looks like `withCredentials` tells the problem browser to change this behavior to
+be more like how we would expect web pages to work.
+
+Browsers without this problem
+behavior, like Safari, do not seem to be negatively affected by `withCredentials`.
+
 #Conclusion
 
 For some reason the existing art for this stack did not exactly met our needs.
